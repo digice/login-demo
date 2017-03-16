@@ -9,9 +9,9 @@
 import Foundation
 
 class AppData : NSObject, NSCoding {
-    
+
     var loggedIn : Bool
-    
+
     override init() {
         self.loggedIn = false
     }
@@ -19,9 +19,9 @@ class AppData : NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         self.loggedIn = aDecoder.decodeBool(forKey: "loggedIn")
     }
-    
+
     func encode(with aCoder: NSCoder) {
         aCoder.encode(self.loggedIn, forKey: "loggedIn")
     }
-    
+
 }
