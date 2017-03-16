@@ -16,19 +16,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let adm = AppDataManager.shared
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+
         var scene = "login"
-        
+
         if self.adm.data.loggedIn == true {
             scene = "app"
         }
-        
+
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
+
         let initialVC = storyboard.instantiateViewController(withIdentifier: scene)
-        
+
         self.window?.rootViewController = initialVC
-        
+
         return true
 
     }
