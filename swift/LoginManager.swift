@@ -30,7 +30,7 @@ class LoginManager {
 
             let task = session.dataTask(with: self.data.request.urlRequest(), completionHandler: {
                 (data, response, error) -> Void in
-    
+
                 if let receivedData = data {
                     self.data.response.parse(data: receivedData)
                     if self.data.response.authenticated == true {
