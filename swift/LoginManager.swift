@@ -13,24 +13,24 @@ protocol LoginManagerDelegate {
 }
 
 class LoginManager {
-    
+
     var delegate : LoginManagerDelegate
-    
+
     var data : LoginData = LoginData.shared
-    
+
     init(delegate: LoginManagerDelegate) {
         self.delegate = delegate
     }
-    
+
     func sendRequest() {
-        
+
         if self.data.request.isValid == true {
-            
+
             let session = URLSession.shared
-            
+
             let task = session.dataTask(with: self.data.request.urlRequest(), completionHandler: {
                 (data, response, error) -> Void in
-                
+    
                 if let receivedData = data {
                     self.data.response.parse(data: receivedData)
                     if self.data.response.authenticated == true {
@@ -45,9 +45,9 @@ class LoginManager {
             })
 
             task.resume()
-            
+
         }
-        
+
     }
-    
+
 }
